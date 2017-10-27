@@ -195,3 +195,302 @@ FOREIGN KEY ("campaign_id")
   [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 6]]
   [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (38.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moriah.mayert@bednar.ca"], ["LIMIT", 1]]
+  [1m[35mSQL (100.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "moriah.mayert@bednar.ca"], ["encrypted_password", "$2a$04$yqPEWPyeEYAkPersnH0hOOTwHzizMjos35XcBnyfjTE48vQmm0npC"], ["name", "fugiat"], ["created_at", "2017-10-27 00:39:04.825838"], ["updated_at", "2017-10-27 00:39:04.825838"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 60ms (ActiveRecord: 0.8ms)
+  [1m[35m (26.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ian_jakubowski@kirlin.us"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "ian_jakubowski@kirlin.us"], ["encrypted_password", "$2a$04$6SQ8bkGxVvquxz4XnGiKMOwTWu3/G0JKcXbfL5v0oWTqHQm/OEvvG"], ["name", "et"], ["created_at", "2017-10-27 00:39:05.028881"], ["updated_at", "2017-10-27 00:39:05.028881"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (38.3ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "officia"], ["description", "Quos facilis animi quia est est aut sed sit."], ["user_id", 8], ["status", 0], ["created_at", "2017-10-27 00:39:05.284855"], ["updated_at", "2017-10-27 00:39:05.284855"], ["event_date", "2015-12-27 00:00:00"], ["event_hour", "2"], ["location", "Carolineville, 69737 Deborah Circles"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "et"], ["email", "ian_jakubowski@kirlin.us"], ["campaign_id", 7], ["created_at", "2017-10-27 00:39:05.325732"], ["updated_at", "2017-10-27 00:39:05.325732"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 7], ["title", "officia"], ["description", "Quos facilis animi quia est est aut sed sit."], ["user_id", 8], ["status", 0], ["created_at", "2017-10-27 00:39:05.284855"], ["updated_at", "2017-10-27 00:39:05.284855"], ["event_date", "2015-12-27 00:00:00"], ["event_hour", "2"], ["location", "Carolineville, 69737 Deborah Circles"], ["id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 44ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lashawn_lesch@gutkowski.ca"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "lashawn_lesch@gutkowski.ca"], ["encrypted_password", "$2a$04$f4TV75zyTLMyAQYGRBXja.kqD/ZJsJl4eWsFciWERoaz2qfiWpvNm"], ["name", "pariatur"], ["created_at", "2017-10-27 00:39:05.382709"], ["updated_at", "2017-10-27 00:39:05.382709"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "scottie@schmelersawayn.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "scottie@schmelersawayn.biz"], ["encrypted_password", "$2a$04$sWWAYml4X48QvsfIC2DlDeW1fzMPJJGugXuoGC1UC22B3n6P8Ofe6"], ["name", "tenetur"], ["created_at", "2017-10-27 00:39:05.388013"], ["updated_at", "2017-10-27 00:39:05.388013"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "esse"], ["description", "Iste assumenda inventore sed dolores ad ea."], ["user_id", 10], ["status", 0], ["created_at", "2017-10-27 00:39:05.393001"], ["updated_at", "2017-10-27 00:39:05.393001"], ["event_date", "2013-08-13 00:00:00"], ["event_hour", "6"], ["location", "South Brigid, 8185 Willms Valleys"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tenetur"], ["email", "scottie@schmelersawayn.biz"], ["campaign_id", 8], ["created_at", "2017-10-27 00:39:05.394812"], ["updated_at", "2017-10-27 00:39:05.394812"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 8], ["title", "esse"], ["description", "Iste assumenda inventore sed dolores ad ea."], ["user_id", 10], ["status", 0], ["created_at", "2017-10-27 00:39:05.393001"], ["updated_at", "2017-10-27 00:39:05.393001"], ["event_date", "2013-08-13 00:00:00"], ["event_hour", "6"], ["location", "South Brigid, 8185 Willms Valleys"], ["id", 8]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://test.host/
+Filter chain halted as :is_owner? rendered or redirected
+Completed 302 Found in 40ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "josefine@haagnikolaus.us"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "josefine@haagnikolaus.us"], ["encrypted_password", "$2a$04$4AGAH/qnRSxoPQ.MCTkAFuUM6xz4cottdUzSma59qm5uwTCurLGTG"], ["name", "omnis"], ["created_at", "2017-10-27 00:39:05.449357"], ["updated_at", "2017-10-27 00:39:05.449357"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Redirected to http://test.host/
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "harlan.ledner@stamm.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "harlan.ledner@stamm.biz"], ["encrypted_password", "$2a$04$nUr3zQIUXL8N.altMIpjQ.7rr1n6m1A.JA3OScqHCGVuQI1Wwobf6"], ["name", "qui"], ["created_at", "2017-10-27 00:39:05.459489"], ["updated_at", "2017-10-27 00:39:05.459489"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#create as HTML
+  Parameters: {"campaign"=>{"description"=>"Sed non enim in doloribus non nulla voluptas.", "event_date"=>"2014-06-25 00:00:00 +0000", "event_hour"=>"22", "location"=>"Walshmouth, 30604 Langworth Avenue", "status"=>"pending", "title"=>"nemo"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Nova Campanha"], ["description", "Descreva sua campanha..."], ["user_id", 12], ["status", 0], ["created_at", "2017-10-27 00:39:05.505602"], ["updated_at", "2017-10-27 00:39:05.505602"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "qui"], ["email", "harlan.ledner@stamm.biz"], ["campaign_id", 9], ["created_at", "2017-10-27 00:39:05.507776"], ["updated_at", "2017-10-27 00:39:05.507776"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7 WHERE "campaigns"."id" = $8[0m  [["id", 9], ["title", "Nova Campanha"], ["description", "Descreva sua campanha..."], ["user_id", 12], ["status", 0], ["created_at", "2017-10-27 00:39:05.505602"], ["updated_at", "2017-10-27 00:39:05.505602"], ["id", 9]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/campaigns/9
+Completed 302 Found in 12ms (ActiveRecord: 2.1ms)
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gilberte@hudsonchristiansen.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "gilberte@hudsonchristiansen.biz"], ["encrypted_password", "$2a$04$Tdolz0eajd/TiVDHXurBaOKvcGPy1s60VjYZ43MGInl7/X2rKloUG"], ["name", "ducimus"], ["created_at", "2017-10-27 00:39:05.517973"], ["updated_at", "2017-10-27 00:39:05.517973"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#create as HTML
+  Parameters: {"campaign"=>{"description"=>"Enim odio laborum perferendis inventore fuga voluptas dolor.", "event_date"=>"2016-03-22 00:00:00 +0000", "event_hour"=>"2", "location"=>"Kreigerview, 2550 Cruickshank Curve", "status"=>"pending", "title"=>"ipsum"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Nova Campanha"], ["description", "Descreva sua campanha..."], ["user_id", 13], ["status", 0], ["created_at", "2017-10-27 00:39:05.525649"], ["updated_at", "2017-10-27 00:39:05.525649"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ducimus"], ["email", "gilberte@hudsonchristiansen.biz"], ["campaign_id", 10], ["created_at", "2017-10-27 00:39:05.527112"], ["updated_at", "2017-10-27 00:39:05.527112"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7 WHERE "campaigns"."id" = $8[0m  [["id", 10], ["title", "Nova Campanha"], ["description", "Descreva sua campanha..."], ["user_id", 13], ["status", 0], ["created_at", "2017-10-27 00:39:05.525649"], ["updated_at", "2017-10-27 00:39:05.525649"], ["id", 10]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/campaigns/10
+Completed 302 Found in 9ms (ActiveRecord: 1.5ms)
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lyndsey.bartell@hegmannupton.us"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "lyndsey.bartell@hegmannupton.us"], ["encrypted_password", "$2a$04$DnrnSa3THOCSkk4W0vavCeWuA6pPt6ZDq39A9Of7aIoavxyL/OPg6"], ["name", "cupiditate"], ["created_at", "2017-10-27 00:39:05.593713"], ["updated_at", "2017-10-27 00:39:05.593713"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#create as HTML
+  Parameters: {"campaign"=>{"description"=>"Officia alias nam eum culpa reiciendis ad perspiciatis.", "event_date"=>"2015-03-18 00:00:00 +0000", "event_hour"=>"5", "location"=>"Joelborough, 10615 Tam Well", "status"=>"pending", "title"=>"vitae"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Nova Campanha"], ["description", "Descreva sua campanha..."], ["user_id", 14], ["status", 0], ["created_at", "2017-10-27 00:39:05.600025"], ["updated_at", "2017-10-27 00:39:05.600025"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "cupiditate"], ["email", "lyndsey.bartell@hegmannupton.us"], ["campaign_id", 11], ["created_at", "2017-10-27 00:39:05.601503"], ["updated_at", "2017-10-27 00:39:05.601503"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7 WHERE "campaigns"."id" = $8[0m  [["id", 11], ["title", "Nova Campanha"], ["description", "Descreva sua campanha..."], ["user_id", 14], ["status", 0], ["created_at", "2017-10-27 00:39:05.600025"], ["updated_at", "2017-10-27 00:39:05.600025"], ["id", 11]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/campaigns/11
+Completed 302 Found in 8ms (ActiveRecord: 1.4ms)
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT  "members".* FROM "members" WHERE "members"."campaign_id" = $1 ORDER BY "members"."id" DESC LIMIT $2[0m  [["campaign_id", 11], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT  "members".* FROM "members" WHERE "members"."campaign_id" = $1 ORDER BY "members"."id" DESC LIMIT $2[0m  [["campaign_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "irving.langworth@jast.us"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "irving.langworth@jast.us"], ["encrypted_password", "$2a$04$HRHHxuOPeIAExumMRZTrgeP7ZnlseI40BUwnNufUWriVd.cWPXxHa"], ["name", "saepe"], ["created_at", "2017-10-27 00:39:05.614272"], ["updated_at", "2017-10-27 00:39:05.614272"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "ut"], ["description", "Ut quod corporis aut necessitatibus."], ["user_id", 15], ["status", 0], ["created_at", "2017-10-27 00:39:05.619448"], ["updated_at", "2017-10-27 00:39:05.619448"], ["event_date", "2014-04-29 00:00:00"], ["event_hour", "22"], ["location", "North Jackie, 5864 King Cape"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "saepe"], ["email", "irving.langworth@jast.us"], ["campaign_id", 12], ["created_at", "2017-10-27 00:39:05.621482"], ["updated_at", "2017-10-27 00:39:05.621482"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 12], ["title", "ut"], ["description", "Ut quod corporis aut necessitatibus."], ["user_id", 15], ["status", 0], ["created_at", "2017-10-27 00:39:05.619448"], ["updated_at", "2017-10-27 00:39:05.619448"], ["event_date", "2014-04-29 00:00:00"], ["event_hour", "22"], ["location", "North Jackie, 5864 King Cape"], ["id", 12]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#destroy as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 12]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 28]]
+  [1m[35mSQL (21.0ms)[0m  [1m[31mDELETE FROM "campaigns" WHERE "campaigns"."id" = $1[0m  [["id", 12]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 22.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "delores.wiza@hickleoconnell.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "delores.wiza@hickleoconnell.com"], ["encrypted_password", "$2a$04$CS.62PRh5Yyf5.hkWMn6CuuEtyFxOVUhnLIMpbp371tjaYpK/Brme"], ["name", "amet"], ["created_at", "2017-10-27 00:39:05.660795"], ["updated_at", "2017-10-27 00:39:05.660795"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lisa@mosciski.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "lisa@mosciski.biz"], ["encrypted_password", "$2a$04$jNoJn/B6XKeAvZ8uBTLOe.eTyI9Y8JH88SESYVJjKDGgulD716hj2"], ["name", "tempora"], ["created_at", "2017-10-27 00:39:05.665672"], ["updated_at", "2017-10-27 00:39:05.665672"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "voluptas"], ["description", "Ut sit rerum aliquid ut."], ["user_id", 17], ["status", 0], ["created_at", "2017-10-27 00:39:05.669984"], ["updated_at", "2017-10-27 00:39:05.669984"], ["event_date", "2013-04-06 00:00:00"], ["event_hour", "13"], ["location", "Sanjuanitaview, 6447 Swift Garden"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tempora"], ["email", "lisa@mosciski.biz"], ["campaign_id", 13], ["created_at", "2017-10-27 00:39:05.671609"], ["updated_at", "2017-10-27 00:39:05.671609"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 13], ["title", "voluptas"], ["description", "Ut sit rerum aliquid ut."], ["user_id", 17], ["status", 0], ["created_at", "2017-10-27 00:39:05.669984"], ["updated_at", "2017-10-27 00:39:05.669984"], ["event_date", "2013-04-06 00:00:00"], ["event_hour", "13"], ["location", "Sanjuanitaview, 6447 Swift Garden"], ["id", 13]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#destroy as JSON
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+Filter chain halted as :is_owner? rendered or redirected
+Completed 403 Forbidden in 3ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ami_parisian@schinnerweimann.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "ami_parisian@schinnerweimann.biz"], ["encrypted_password", "$2a$04$JyioVcBWn9O57p2iN/FHEOXGU4r1/q5p2OB2BV8yXtmeuKvMj1e92"], ["name", "voluptate"], ["created_at", "2017-10-27 00:39:05.685068"], ["updated_at", "2017-10-27 00:39:05.685068"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "in"], ["description", "Aspernatur debitis eum est et ex reprehenderit impedit."], ["user_id", 18], ["status", 0], ["created_at", "2017-10-27 00:39:05.691429"], ["updated_at", "2017-10-27 00:39:05.691429"], ["event_date", "2013-04-13 00:00:00"], ["event_hour", "19"], ["location", "North Peteborough, 99409 Koch Grove"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "voluptate"], ["email", "ami_parisian@schinnerweimann.biz"], ["campaign_id", 14], ["created_at", "2017-10-27 00:39:05.693053"], ["updated_at", "2017-10-27 00:39:05.693053"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 14], ["title", "in"], ["description", "Aspernatur debitis eum est et ex reprehenderit impedit."], ["user_id", 18], ["status", 0], ["created_at", "2017-10-27 00:39:05.691429"], ["updated_at", "2017-10-27 00:39:05.691429"], ["event_date", "2013-04-13 00:00:00"], ["event_hour", "19"], ["location", "North Peteborough, 99409 Koch Grove"], ["id", 14]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#update as JSON
+  Parameters: {"campaign"=>{"description"=>"Blanditiis esse facilis assumenda quasi iusto.", "event_date"=>"2013-03-18 00:00:00 +0000", "event_hour"=>"23", "location"=>"Lednerport, 6747 Larson Glens", "status"=>"pending", "title"=>"et"}, "id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Unpermitted parameter: status
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "campaigns" SET "title" = $1, "description" = $2, "event_date" = $3, "event_hour" = $4, "location" = $5, "updated_at" = $6 WHERE "campaigns"."id" = $7[0m  [["title", "et"], ["description", "Blanditiis esse facilis assumenda quasi iusto."], ["event_date", "2013-03-18 00:00:00"], ["event_hour", "23"], ["location", "Lednerport, 6747 Larson Glens"], ["updated_at", "2017-10-27 00:39:05.702918"], ["id", 14]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "windy.sanford@wintheiser.us"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "windy.sanford@wintheiser.us"], ["encrypted_password", "$2a$04$YHNtaGn4fE5jlJ1x3O52/OZWD99qxHyp7Ms5RQHRDWUDfV2YjmfU6"], ["name", "delectus"], ["created_at", "2017-10-27 00:39:05.710172"], ["updated_at", "2017-10-27 00:39:05.710172"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "ullam"], ["description", "Fuga magnam nisi rem deserunt aut assumenda aut."], ["user_id", 19], ["status", 0], ["created_at", "2017-10-27 00:39:05.716225"], ["updated_at", "2017-10-27 00:39:05.716225"], ["event_date", "2017-05-30 00:00:00"], ["event_hour", "9"], ["location", "Kesslerbury, 58343 Aide Route"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "delectus"], ["email", "windy.sanford@wintheiser.us"], ["campaign_id", 15], ["created_at", "2017-10-27 00:39:05.717808"], ["updated_at", "2017-10-27 00:39:05.717808"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 15], ["title", "ullam"], ["description", "Fuga magnam nisi rem deserunt aut assumenda aut."], ["user_id", 19], ["status", 0], ["created_at", "2017-10-27 00:39:05.716225"], ["updated_at", "2017-10-27 00:39:05.716225"], ["event_date", "2017-05-30 00:00:00"], ["event_hour", "9"], ["location", "Kesslerbury, 58343 Aide Route"], ["id", 15]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#update as JSON
+  Parameters: {"campaign"=>{"description"=>"Qui eligendi laboriosam quidem molestiae vitae quisquam.", "event_date"=>"2017-10-09 00:00:00 +0000", "event_hour"=>"3", "location"=>"Bednarville, 253 Ebert Tunnel", "status"=>"pending", "title"=>"laudantium"}, "id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.1ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+Unpermitted parameter: status
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "campaigns" SET "title" = $1, "description" = $2, "event_date" = $3, "event_hour" = $4, "location" = $5, "updated_at" = $6 WHERE "campaigns"."id" = $7[0m  [["title", "laudantium"], ["description", "Qui eligendi laboriosam quidem molestiae vitae quisquam."], ["event_date", "2017-10-09 00:00:00"], ["event_hour", "3"], ["location", "Bednarville, 253 Ebert Tunnel"], ["updated_at", "2017-10-27 00:39:05.729345"], ["id", 15]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "daphine@conroy.ca"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "daphine@conroy.ca"], ["encrypted_password", "$2a$04$jTM32nldaPs52kJiNY5pd.iaFssnYdPOqJPmP5BemUEaAJNcFtHU."], ["name", "neque"], ["created_at", "2017-10-27 00:39:05.738990"], ["updated_at", "2017-10-27 00:39:05.738990"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jamal@spinka.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "jamal@spinka.info"], ["encrypted_password", "$2a$04$41de7wZcECkfmWvLNrzbGecQJIlsBGuVmRjP39a/9KP2MhYrY1Gle"], ["name", "aut"], ["created_at", "2017-10-27 00:39:05.744941"], ["updated_at", "2017-10-27 00:39:05.744941"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "ut"], ["description", "Tempora eos dolorem sit aut et assumenda voluptatem."], ["user_id", 21], ["status", 0], ["created_at", "2017-10-27 00:39:05.749014"], ["updated_at", "2017-10-27 00:39:05.749014"], ["event_date", "2014-07-13 00:00:00"], ["event_hour", "0"], ["location", "Wehnerland, 01062 Rowe Way"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "aut"], ["email", "jamal@spinka.info"], ["campaign_id", 16], ["created_at", "2017-10-27 00:39:05.750563"], ["updated_at", "2017-10-27 00:39:05.750563"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 16], ["title", "ut"], ["description", "Tempora eos dolorem sit aut et assumenda voluptatem."], ["user_id", 21], ["status", 0], ["created_at", "2017-10-27 00:39:05.749014"], ["updated_at", "2017-10-27 00:39:05.749014"], ["event_date", "2014-07-13 00:00:00"], ["event_hour", "0"], ["location", "Wehnerland, 01062 Rowe Way"], ["id", 16]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#update as JSON
+  Parameters: {"campaign"=>{"description"=>"Ut unde porro quo assumenda optio.", "event_date"=>"2017-04-19 00:00:00 +0000", "event_hour"=>"0", "location"=>"Port Phylissland, 83551 Clementine Parkway", "status"=>"pending", "title"=>"accusantium"}, "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+Filter chain halted as :is_owner? rendered or redirected
+Completed 403 Forbidden in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kirby@mullerblanda.ca"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kirby@mullerblanda.ca"], ["encrypted_password", "$2a$04$YgbUNVA0F1HLHKluXPkfGuwNxMeeqkImsvJvww5zOhGMnrZU4jvHi"], ["name", "quidem"], ["created_at", "2017-10-27 00:39:05.765162"], ["updated_at", "2017-10-27 00:39:05.765162"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "ducimus"], ["description", "Eaque et et iste quidem."], ["user_id", 22], ["status", 0], ["created_at", "2017-10-27 00:39:05.770099"], ["updated_at", "2017-10-27 00:39:05.770099"], ["event_date", "2016-10-06 00:00:00"], ["event_hour", "19"], ["location", "New Russell, 53839 Craig Summit"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "quidem"], ["email", "kirby@mullerblanda.ca"], ["campaign_id", 17], ["created_at", "2017-10-27 00:39:05.772082"], ["updated_at", "2017-10-27 00:39:05.772082"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 17], ["title", "ducimus"], ["description", "Eaque et et iste quidem."], ["user_id", 22], ["status", 0], ["created_at", "2017-10-27 00:39:05.770099"], ["updated_at", "2017-10-27 00:39:05.770099"], ["event_date", "2016-10-06 00:00:00"], ["event_hour", "19"], ["location", "New Russell, 53839 Craig Summit"], ["id", 17]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "incidunt"], ["email", "rufina@emard.us"], ["campaign_id", 17], ["created_at", "2017-10-27 00:39:05.777655"], ["updated_at", "2017-10-27 00:39:05.777655"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ducimus"], ["email", "sana@kuphal.biz"], ["campaign_id", 17], ["created_at", "2017-10-27 00:39:05.780610"], ["updated_at", "2017-10-27 00:39:05.780610"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "labore"], ["email", "margareta_turcotte@windlerrice.biz"], ["campaign_id", 17], ["created_at", "2017-10-27 00:39:05.783389"], ["updated_at", "2017-10-27 00:39:05.783389"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#raffle as JSON
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 17]]
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: e46c0b7f-787f-47a5-828a-876a88b58af9) to Sidekiq(emails) with arguments: #<GlobalID:0x00000005695870 @uri=#<URI::GID gid://secret-friend-game/Campaign/17>>
+Completed 200 OK in 562ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kristian_jacobi@treutelschmeler.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kristian_jacobi@treutelschmeler.info"], ["encrypted_password", "$2a$04$fwj.Kd8Dmpa7LVS4E30LGuHF8E4iCvqoOb2dqP640Yh8IugTOba.u"], ["name", "similique"], ["created_at", "2017-10-27 00:39:06.356165"], ["updated_at", "2017-10-27 00:39:06.356165"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "repellat"], ["description", "Enim sint minus doloribus a."], ["user_id", 23], ["status", 0], ["created_at", "2017-10-27 00:39:06.361394"], ["updated_at", "2017-10-27 00:39:06.361394"], ["event_date", "2015-12-30 00:00:00"], ["event_hour", "20"], ["location", "East Kacyborough, 34547 Rosemary Hollow"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "similique"], ["email", "kristian_jacobi@treutelschmeler.info"], ["campaign_id", 18], ["created_at", "2017-10-27 00:39:06.363096"], ["updated_at", "2017-10-27 00:39:06.363096"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 18], ["title", "repellat"], ["description", "Enim sint minus doloribus a."], ["user_id", 23], ["status", 0], ["created_at", "2017-10-27 00:39:06.361394"], ["updated_at", "2017-10-27 00:39:06.361394"], ["event_date", "2015-12-30 00:00:00"], ["event_hour", "20"], ["location", "East Kacyborough, 34547 Rosemary Hollow"], ["id", 18]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "error"], ["email", "sherryl@renner.co.uk"], ["campaign_id", 18], ["created_at", "2017-10-27 00:39:06.367122"], ["updated_at", "2017-10-27 00:39:06.367122"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#raffle as JSON
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 18]]
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tyisha.gleason@rutherfordcummings.name"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "tyisha.gleason@rutherfordcummings.name"], ["encrypted_password", "$2a$04$dogkrmdAWv/Bzz4Xk4iS8.OaU2pBRxKgD/Cnk99efusx8iS2pspPS"], ["name", "repudiandae"], ["created_at", "2017-10-27 00:39:06.380312"], ["updated_at", "2017-10-27 00:39:06.380312"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "conception@harvey.ca"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "conception@harvey.ca"], ["encrypted_password", "$2a$04$okBJzvIRhs5pxwg6giLGZ.ZrKa71wPzuNCXx1PpNbwJW8YkSVN5Yy"], ["name", "natus"], ["created_at", "2017-10-27 00:39:06.385051"], ["updated_at", "2017-10-27 00:39:06.385051"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "campaigns" ("title", "description", "user_id", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "animi"], ["description", "Dolor culpa et dolore id aut quos quis blanditiis."], ["user_id", 25], ["status", 0], ["created_at", "2017-10-27 00:39:06.388942"], ["updated_at", "2017-10-27 00:39:06.388942"], ["event_date", "2013-11-29 00:00:00"], ["event_hour", "13"], ["location", "North Abbieside, 355 Jamey Glens"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "members" ("name", "email", "campaign_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "natus"], ["email", "conception@harvey.ca"], ["campaign_id", 19], ["created_at", "2017-10-27 00:39:06.390518"], ["updated_at", "2017-10-27 00:39:06.390518"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "campaigns" SET "id" = $1, "title" = $2, "description" = $3, "user_id" = $4, "status" = $5, "created_at" = $6, "updated_at" = $7, "event_date" = $8, "event_hour" = $9, "location" = $10 WHERE "campaigns"."id" = $11[0m  [["id", 19], ["title", "animi"], ["description", "Dolor culpa et dolore id aut quos quis blanditiis."], ["user_id", 25], ["status", 0], ["created_at", "2017-10-27 00:39:06.388942"], ["updated_at", "2017-10-27 00:39:06.388942"], ["event_date", "2013-11-29 00:00:00"], ["event_hour", "13"], ["location", "North Abbieside, 355 Jamey Glens"], ["id", 19]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CampaignsController#raffle as JSON
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mCampaign Load (0.1ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+Filter chain halted as :is_owner? rendered or redirected
+Completed 403 Forbidden in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
