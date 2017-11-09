@@ -7,12 +7,12 @@ default: &default
 
 development:
   <<: *default
-  database: secret-friend-game_development
+  database: secret_santa_development
 
 test:
   <<: *default
-  database: secret-friend-game_test
+  database: secret_santa_test
 
 production:
   <<: *default
-  database: secret-friend-game_production
+  database: secret_santa_production

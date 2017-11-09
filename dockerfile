@@ -3,7 +3,7 @@ FROM ruby:2.3-slim
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
       build-essential nodejs libpq-dev imagemagick
 # Seta nosso path
-ENV INSTALL_PATH /secret-friend-game
+ENV INSTALL_PATH /secret_santa
 # Cria nosso diretório
 RUN mkdir -p $INSTALL_PATH
 # Seta o nosso path como o diretório principal

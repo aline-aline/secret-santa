@@ -1,1 +1,1 @@
-# secret-friend-game
+# secret_santa

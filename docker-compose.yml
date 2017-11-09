@@ -22,7 +22,7 @@ services:
     build: .
     command: bash start_jobs
     volumes:
-      - '.:/secret-friend-game'
+      - '.:/secret_santa'
     volumes_from:
       - box
 
@@ -35,7 +35,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - '.:/secret-friend-game'
+      - '.:/secret_santa'
     volumes_from:
     - box
 

@@ -3,7 +3,7 @@ FROM nginx
 # Install dependencies
 RUN apt-get update -qq && apt-get -y install apache2-utils
 # establish where Nginx should look for files
-ENV RAILS_ROOT /secret-friend-game
+ENV RAILS_ROOT /secret_santa
 
 # Set our working directory inside the image
 WORKDIR $RAILS_ROOT

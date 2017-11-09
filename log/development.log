@@ -522,12 +522,12 @@ Processing by CampaignsController#raffle as JSON
   [1m[36mCampaign Load (1.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
-[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 0c456a93-8fb0-4b2a-9594-5b509037ca6a) to Sidekiq(emails) with arguments: #<GlobalID:0x00000002762cd8 @uri=#<URI::GID gid://secret-friend-game/Campaign/35>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 0c456a93-8fb0-4b2a-9594-5b509037ca6a) to Sidekiq(emails) with arguments: #<GlobalID:0x00000002762cd8 @uri=#<URI::GID gid://secret_santa/Campaign/35>>
 Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 2.8ms)
 
 
   [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
-[ActiveJob] [CampaignRaffleJob] [0c456a93-8fb0-4b2a-9594-5b509037ca6a] Performing CampaignRaffleJob from Sidekiq(emails) with arguments: #<GlobalID:0x007f26b0041d10 @uri=#<URI::GID gid://secret-friend-game/Campaign/35>>
+[ActiveJob] [CampaignRaffleJob] [0c456a93-8fb0-4b2a-9594-5b509037ca6a] Performing CampaignRaffleJob from Sidekiq(emails) with arguments: #<GlobalID:0x007f26b0041d10 @uri=#<URI::GID gid://secret_santa/Campaign/35>>
 [ActiveJob] [CampaignRaffleJob] [0c456a93-8fb0-4b2a-9594-5b509037ca6a]   [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
 [ActiveJob] [CampaignRaffleJob] [0c456a93-8fb0-4b2a-9594-5b509037ca6a]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
 [ActiveJob] [CampaignRaffleJob] [0c456a93-8fb0-4b2a-9594-5b509037ca6a]   [1m[36mMember Load (0.8ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
@@ -3093,12 +3093,12 @@ Processing by CampaignsController#raffle as JSON
   [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
-[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 397fa086-1a86-43b6-8532-914e3f8df523) to Sidekiq(emails) with arguments: #<GlobalID:0x00000005216830 @uri=#<URI::GID gid://secret-friend-game/Campaign/35>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 397fa086-1a86-43b6-8532-914e3f8df523) to Sidekiq(emails) with arguments: #<GlobalID:0x00000005216830 @uri=#<URI::GID gid://secret_santa/Campaign/35>>
 Completed 200 OK in 68ms (Views: 0.2ms | ActiveRecord: 2.5ms)
 
 
   [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
-[ActiveJob] [CampaignRaffleJob] [397fa086-1a86-43b6-8532-914e3f8df523] Performing CampaignRaffleJob from Sidekiq(emails) with arguments: #<GlobalID:0x007fc680049c20 @uri=#<URI::GID gid://secret-friend-game/Campaign/35>>
+[ActiveJob] [CampaignRaffleJob] [397fa086-1a86-43b6-8532-914e3f8df523] Performing CampaignRaffleJob from Sidekiq(emails) with arguments: #<GlobalID:0x007fc680049c20 @uri=#<URI::GID gid://secret_santa/Campaign/35>>
 [ActiveJob] [CampaignRaffleJob] [397fa086-1a86-43b6-8532-914e3f8df523]   [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
 [ActiveJob] [CampaignRaffleJob] [397fa086-1a86-43b6-8532-914e3f8df523]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
 [ActiveJob] [CampaignRaffleJob] [397fa086-1a86-43b6-8532-914e3f8df523]   [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
@@ -5671,7 +5671,7 @@ Processing by CampaignsController#raffle as JSON
   [1m[36mCampaign Load (0.1ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
-[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 29d3c8ed-d097-4e9b-811a-035c87621919) to Sidekiq(emails) with arguments: #<GlobalID:0x00000003c65950 @uri=#<URI::GID gid://secret-friend-game/Campaign/35>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 29d3c8ed-d097-4e9b-811a-035c87621919) to Sidekiq(emails) with arguments: #<GlobalID:0x00000003c65950 @uri=#<URI::GID gid://secret_santa/Campaign/35>>
 Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.9ms)
 
 
@@ -5761,7 +5761,7 @@ Processing by CampaignsController#raffle as JSON
   [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 35]]
-[ActiveJob] Enqueued CampaignRaffleJob (Job ID: d12b4a6a-c554-4fd0-890d-cf5d55f3ee6c) to Sidekiq(emails) with arguments: #<GlobalID:0x00000003500340 @uri=#<URI::GID gid://secret-friend-game/Campaign/35>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: d12b4a6a-c554-4fd0-890d-cf5d55f3ee6c) to Sidekiq(emails) with arguments: #<GlobalID:0x00000003500340 @uri=#<URI::GID gid://secret_santa/Campaign/35>>
 Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.4ms)
 
 
@@ -5943,7 +5943,7 @@ Processing by CampaignsController#raffle as JSON
   [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 1]]
-[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 732f49b8-6158-4d4d-9f55-b73034bb4b4b) to Sidekiq(emails) with arguments: #<GlobalID:0x007f3f180aaf38 @uri=#<URI::GID gid://secret-friend-game/Campaign/1>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 732f49b8-6158-4d4d-9f55-b73034bb4b4b) to Sidekiq(emails) with arguments: #<GlobalID:0x007f3f180aaf38 @uri=#<URI::GID gid://secret_santa/Campaign/1>>
 Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 1.3ms)
 
 
@@ -6073,7 +6073,7 @@ Processing by CampaignsController#raffle as JSON
   [1m[36mCampaign Load (0.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 2]]
-[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 9cdd719c-605b-4d0d-8fc4-f37d448646b3) to Sidekiq(emails) with arguments: #<GlobalID:0x007f3f18432890 @uri=#<URI::GID gid://secret-friend-game/Campaign/2>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 9cdd719c-605b-4d0d-8fc4-f37d448646b3) to Sidekiq(emails) with arguments: #<GlobalID:0x007f3f18432890 @uri=#<URI::GID gid://secret_santa/Campaign/2>>
 Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 1.7ms)
 
 

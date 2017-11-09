@@ -1,5 +1,5 @@
-  [1m[35m (908.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "secret-friend-game_test"[0m
-  [1m[35m (3876.4ms)[0m  [1m[35mCREATE DATABASE "secret-friend-game_test" ENCODING = 'unicode'[0m
+  [1m[35m (908.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "secret_santa_test"[0m
+  [1m[35m (3876.4ms)[0m  [1m[35mCREATE DATABASE "secret_santa_test" ENCODING = 'unicode'[0m
   [1m[35mSQL (59.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
   [1m[35m (284.5ms)[0m  [1m[35mCREATE TABLE "campaigns" ("id" serial primary key, "title" character varying, "description" text, "user_id" integer, "status" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "event_date" timestamp, "event_hour" character varying, "location" character varying)[0m
   [1m[35m (96.2ms)[0m  [1m[35mCREATE  INDEX  "index_campaigns_on_user_id" ON "campaigns" USING btree ("user_id")[0m
@@ -448,7 +448,7 @@ Processing by CampaignsController#raffle as JSON
   [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 17]]
-[ActiveJob] Enqueued CampaignRaffleJob (Job ID: e46c0b7f-787f-47a5-828a-876a88b58af9) to Sidekiq(emails) with arguments: #<GlobalID:0x00000005695870 @uri=#<URI::GID gid://secret-friend-game/Campaign/17>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: e46c0b7f-787f-47a5-828a-876a88b58af9) to Sidekiq(emails) with arguments: #<GlobalID:0x00000005695870 @uri=#<URI::GID gid://secret_santa/Campaign/17>>
 Completed 200 OK in 562ms (Views: 0.2ms | ActiveRecord: 1.0ms)
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
@@ -754,7 +754,7 @@ Processing by CampaignsController#raffle as JSON
   [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 30]]
-[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 701da166-29c8-48d0-902d-307195fe72d4) to Sidekiq(emails) with arguments: #<GlobalID:0x000000073be398 @uri=#<URI::GID gid://secret-friend-game/Campaign/30>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 701da166-29c8-48d0-902d-307195fe72d4) to Sidekiq(emails) with arguments: #<GlobalID:0x000000073be398 @uri=#<URI::GID gid://secret_santa/Campaign/30>>
 Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.9ms)
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
