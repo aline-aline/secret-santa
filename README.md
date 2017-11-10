@@ -21,7 +21,7 @@ If you don't want to install these softwares, you will be able to use this app i
 ## Running the tests
 
 ```
-docker-compose run --rm website bundle exec rspec spec
+docker-compose run --rm app bundle exec rspec spec
 ```
 ## Built With
 
