@@ -6231,3 +6231,15 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 6823ms (Views: 6774.7ms | ActiveRecord: 0.0ms)
 
 
+  [1m[36mCampaign Load (22.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Started GET "/" for 172.20.0.1 at 2017-11-11 21:05:32 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (18.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (22.0ms)
+  Rendered shared/_navbar.html.erb (12.2ms)
+  Rendered shared/_footer.html.erb (0.8ms)
+Completed 200 OK in 7748ms (Views: 7674.2ms | ActiveRecord: 0.0ms)
+
+

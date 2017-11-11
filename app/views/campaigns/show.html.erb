@@ -106,7 +106,10 @@
         <%= form_tag(raffle_campaign_path(@campaign), method: 'post', class: 'raffle_campaign') do %>
           <button type='submit' class="waves-effect waves-light btn red">Sortear e enviar</button>
         <% end %>
+        <div id="campaign_remove_id"></div>
       </div>
     </div>
   </div>
 </div>
+
+<%= render "remove_campaign_modal" %>
