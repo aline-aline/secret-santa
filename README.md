@@ -13,7 +13,7 @@ This app is docker based. To avoid extra configurations, you should have `docker
 If you don't want to install these softwares, you will be able to use this app installing `ruby` (>= 2.3) and `Postgresql` (>= 9.5).
 ### Installing
 
-* Clone this repo `git clone https://github.com/aline-aline/ruby-chat`;
+* Clone this repo `git clone https://github.com/aline-aline/secret-santa`;
   * In the repo folder, run: 
     * `docker-compose build`;
     * `docker-compose run --rm app bundle exec rake db:create`;
